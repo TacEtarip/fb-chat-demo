@@ -17,14 +17,14 @@ bunyan.createLogger({ name: `${serviceName}:${serviceVersion}` });
 const config = {
 	development: {
         estado: 'development',
-        port: parseInt(process.env.PORT_DEV),
+        port: parseInt(process.env.PORT),
         verify_fb: process.env.VERIFY_TOKEN,
         log: (): bunyan => getLogger('DEVELOPMENT', version),
 	},
 
 	production: {
         estado: 'production',
-        port: parseInt(process.env.PORT_DEV),
+        port: parseInt(process.env.PORT),
         verify_fb: process.env.VERIFY_TOKEN,
         log: (): bunyan => getLogger('PRODUCCION', version),
 	},
