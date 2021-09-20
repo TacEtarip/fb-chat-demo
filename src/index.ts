@@ -6,7 +6,7 @@ const WORKERS = (process.env.WEB_CONCURRENCY || 1) as number;
 
 const configENV = getConfig(process.env.NODE_ENV);
 
-const PORT = 2000;
+const PORT = configENV.port || 2000;
 
 const start = (id: number) => {
     configENV.log().info(`Id Worker ${id}`);
