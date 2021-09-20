@@ -1,7 +1,7 @@
 import { crearRutaFB } from '../../src/server/routes/facebookRoute'
 import ExpressAPP from '../../src/server/ExpressAPP';
 import request from 'supertest';
-import Route from '../../src/server/routes/Route';
+import Route from '../../src/lib/Route';
 import { IFacebookWebHook } from '../../src/lib/FacebookInterfaces';
 import { getConfig } from '../../src/config/config';
 
@@ -16,9 +16,10 @@ describe('Crracion de la ruta fb (para facebook)', () => {
     let rutaCreada: Route;
 
     beforeAll(() => {
-        appExp = new ExpressAPP(8083);
+        appExp = new ExpressAPP(8084);
         rutaCreada = crearRutaFB();
         appExp.app.use(rutaCreada.ruta, rutaCreada.router);
+        appExp.crearServidor();
     });
 
     it('La ruta base es la adecuada', () => {

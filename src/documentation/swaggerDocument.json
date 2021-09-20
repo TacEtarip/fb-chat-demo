@@ -9,9 +9,9 @@
             "email": "hu3rtas@outlook.com",
             "name": "Luis Huertas"
         },
-        "title":"Template TypeScript Node",
-        "version":"1.0.0",
-        "description": "Template para realizar una aplicación de nodejs con express"
+        "title":"Chat demo",
+        "version":"0.0.1",
+        "description": "Demo para chat"
     },
     "servers": [
         {

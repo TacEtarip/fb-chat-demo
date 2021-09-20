@@ -1,6 +1,6 @@
 {
-  "name": "typescriptnodetemplate",
-  "version": "1.0.0",
+  "name": "chatbotexample",
+  "version": "0.0.1",
   "description": "Template para usar TypeScript con nodejs",
   "main": "./dist/main.js",
   "scripts": {
