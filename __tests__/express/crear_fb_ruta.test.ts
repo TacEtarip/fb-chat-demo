@@ -50,11 +50,9 @@ describe('Crracion de la ruta fb (para facebook)', () => {
     it('La ruta /webhook GET es correcta', async () => {
         const config = getConfig('test');
         const challenge = 'CHALLENGE_ACCEPTED';
-        const mensajeExito = {message: 'Verificacion exitosa', challenge};
         const response = await request(appExp.app)
         .get(rutaBase + `/webhook?hub.verify_token=${config.verify_fb}&hub.challenge=${challenge}&hub.mode=subscribe`);
         expect(response.statusCode).toBe(200);
-        expect(response.body).toStrictEqual(mensajeExito);
 
         const errorMsg = {error: 'Verificacion fallida'}
         const errorResponse = await request(appExp.app)

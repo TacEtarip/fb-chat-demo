@@ -1,5 +1,9 @@
 export interface IFacebookWebHook {
     object: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    entry: {messaging: any[]}[];
+    entry: {
+        id: string,
+        time: number,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        messaging: any[]
+    }[];
 }

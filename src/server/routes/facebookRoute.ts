@@ -4,6 +4,7 @@ import { IFacebookWebHook } from '../../lib/FacebookInterfaces';
 import { getConfig } from '../../config/config';
 
 // ** Crea una ruta
+
 export const crearRutaFB = (): Route => {
 
     const rutaNombre = 'fb';
@@ -15,6 +16,10 @@ export const crearRutaFB = (): Route => {
         return res.json({message: `Ruta /${rutaNombre} funciona`});
     });
 
+    
+    /**
+     * * Crea POST para webhook de fb espera un body de tipo IFacebookWebHook el object debe ser 'page'
+     */
     router.post('/webhook', (req, res) => {
         try {
             const body = req.body as IFacebookWebHook;
@@ -33,6 +38,12 @@ export const crearRutaFB = (): Route => {
         }
     });
 
+        
+    /**
+     *  * Crea GET espera un query donde el mode tiene que ser subscribe y 
+     *  * dar el token secreto en hub.verify_token, el challange en hub.challenge y el mode en hub.mode
+     */
+    //
     router.get('/webhook', (req, res) => {
             const VERIFY_TOKEN = getConfig(process.env.NODE_ENV).verify_fb;
             const mode = req.query['hub.mode'];
@@ -40,10 +51,7 @@ export const crearRutaFB = (): Route => {
             const challenge = req.query['hub.challenge'];
             if (mode && token) {
               if (mode === 'subscribe' && token === VERIFY_TOKEN) {
-
-                console.log('WEBHOOK_VERIFIED');
-                return res.status(200).send({message: 'Verificacion exitosa', challenge});
-            
+                return res.status(200).send(challenge);
               } else {
                 return res.status(403).json({error: 'Verificacion fallida'});    
               }
