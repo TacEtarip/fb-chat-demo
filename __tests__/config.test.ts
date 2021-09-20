@@ -7,6 +7,8 @@ describe('La configuración minima es correcta', () => {
         const config = getConfig('development');
         expect(config).toHaveProperty('log');
         expect(config).toHaveProperty('estado');
+        expect(config).toHaveProperty('port');
+        expect(config).toHaveProperty('verify_fb');
 
         expect(config.estado).toBe('development');
 
@@ -18,6 +20,8 @@ describe('La configuración minima es correcta', () => {
         const config = getConfig('production');
         expect(config).toHaveProperty('log');
         expect(config).toHaveProperty('estado');
+        expect(config).toHaveProperty('port');
+        expect(config).toHaveProperty('verify_fb');
 
         expect(config.estado).toBe('production');
 
@@ -29,6 +33,7 @@ describe('La configuración minima es correcta', () => {
         const config = getConfig('test');
         expect(config).toHaveProperty('log');
         expect(config).toHaveProperty('estado');
+        expect(config).toHaveProperty('verify_fb');
 
         expect(config.estado).toBe('test');
 

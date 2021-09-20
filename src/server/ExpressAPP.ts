@@ -5,7 +5,7 @@ import swaggerUI from 'swagger-ui-express';
 import swaggerDoc from '../documentation/swaggerDocument.json';
 import morgan from 'morgan';
 import cors from 'cors';
-import {crearRutaExample} from './routes/exampleRoute';
+import {crearRutaFB} from './routes/facebookRoute';
 import { IExpressNecesaryFunctions, IExpressNecesaryParams } from '../lib/ExpressNecesary';
 import http from 'http';
 
@@ -64,8 +64,8 @@ class ExpressAPP implements IExpressNecesaryFunctions, IExpressNecesaryParams {
      * @memberof ExpressAPP
      */
     agregarRutas(): void {
-        const rutaExample = crearRutaExample();
-        this.app.use(rutaExample.ruta, rutaExample.router);
+        const fbRoute = crearRutaFB();
+        this.app.use(fbRoute.ruta, fbRoute.router);
     }
 
     /**
