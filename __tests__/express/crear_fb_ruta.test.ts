@@ -68,8 +68,8 @@ describe('Crracion de la ruta fb (para facebook)', () => {
         expect(errorResponseST.statusCode).toBe(403);
 
         const errorResponseTT = await request(appExp.app)
-        .get(rutaBase + '/webhookhub.verify_token=otrotoken&hub.mode=subscribe');
-        expect(errorResponseTT.statusCode).toBe(404);
+        .get(rutaBase + '/webhook');
+        expect(errorResponseTT.statusCode).toBe(403);
 
         const errorResponseFT = await request(appExp.app)
         .get(rutaBase + `/webhook?hub.verify_token=${config.verify_fb}&hub.challenge=${challenge}&hub.mode=nops`);
