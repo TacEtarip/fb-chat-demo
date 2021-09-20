@@ -26,6 +26,7 @@
     "helmet": "^4.6.0",
     "morgan": "^1.10.0",
     "swagger-ui-express": "^4.1.6",
+    "cross-env": "^7.0.3",
     "throng": "^5.0.0"
   },
   "devDependencies": {
@@ -40,7 +41,6 @@
     "@types/throng": "^5.0.2",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
-    "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.24.2",
